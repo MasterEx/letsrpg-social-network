@@ -34,3 +34,11 @@ rate
 abuse-report
 messages
 ads
+
+###Reference
+
+Man pages and documentation that we'll probably need more than once!
+
+####Django
+
+ * [Field Types](https://docs.djangoproject.com/en/dev/ref/models/fields/#field-types)
