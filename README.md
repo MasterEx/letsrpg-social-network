@@ -42,3 +42,4 @@ Man pages and documentation that we'll probably need more than once!
 ####Django
 
  * [Field Types](https://docs.djangoproject.com/en/dev/ref/models/fields/#field-types)
+ * [File Upload Example(http://abing.gotdns.com/posts/2009/django-file-upload-handling-examples/)
