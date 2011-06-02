@@ -43,3 +43,8 @@ Man pages and documentation that we'll probably need more than once!
 
  * [Field Types](https://docs.djangoproject.com/en/dev/ref/models/fields/#field-types)
  * [File Upload Example(http://abing.gotdns.com/posts/2009/django-file-upload-handling-examples/)
+
+####Tips-Notes
+
+ * Database superuser credentials: username=admin , password=pass
+ * Recreate database by deleting it and synchronizing again (not the best way though)
