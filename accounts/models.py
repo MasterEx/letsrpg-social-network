@@ -6,7 +6,11 @@ class User(models.Model):
 	password = models.CharField(max_length=32) # password will be saved as md5 hash
 	email = models.EmailField()
 	verification = models.BooleanField(default=False)
-	role = models.BooleanField(default=False) # False for regular user - True for admin
+	ROLE_CHOICES = (
+		( 'U' , 'user'),
+		( 'A' , 'administrator'),
+	)
+	role = models.CharField(max_length=1,default='U',choices=ROLE_CHOICES)
 	
 	def __unicode__(self):
 		return self.name

@@ -16,10 +16,11 @@ class Event(models.Model):
 class EventPlayer(models.Model):
 	userid = models.ForeignKey(User)
 	eventid = models.ForeignKey(Event)
-	type = (
+	TYPE_CHOICES = (
 		( 'P' , 'Player'),
 		( 'M' , 'Game Master - Story Tailer'),
 	)
+	type = models.CharField(max_length=1,default='P',choices=TYPE_CHOICES)
 
 	def __unicode__(self):
 			return self.name
