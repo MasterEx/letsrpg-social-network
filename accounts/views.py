@@ -7,7 +7,6 @@ from django.contrib.auth import authenticate, login
 def login(request):
     return render_to_response('accounts/login.html',
                                context_instance=RequestContext(request))
-
 def check(request):
 	username = request.POST['username']
 	password = request.POST['password']
