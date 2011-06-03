@@ -6,6 +6,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
+    (r'^login/$', 'accounts.views.login'),
     # url(r'^$', 'letsrpg.views.home', name='home'),
     # url(r'^letsrpg/', include('letsrpg.foo.urls')),
 
