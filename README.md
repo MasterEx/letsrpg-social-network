@@ -23,17 +23,17 @@ Each entity described in step 2 will be a django model in it's own application.
 Exception is User and Profile entities that will be placed in an app named "account"
 and Event and Event-Player entities that will be placed in an app named "event".
 
-account
-    |-User
-    |-Profile
-event
-    |-Event
-    |-Event-Player
-follows
-rate
-abuse-report
-messages
-ads
+	account
+		|-User
+		|-Profile
+	event
+		|-Event
+		|-Event-Player
+	follows
+	rate
+	abuse-report
+	messages
+	ads
 
 ###Reference
 
@@ -42,7 +42,7 @@ Man pages and documentation that we'll probably need more than once!
 ####Django
 
  * [Field Types](https://docs.djangoproject.com/en/dev/ref/models/fields/#field-types)
- * [File Upload Example(http://abing.gotdns.com/posts/2009/django-file-upload-handling-examples/)
+ * [File Upload Example](http://abing.gotdns.com/posts/2009/django-file-upload-handling-examples/)
 
 ####Tips-Notes
 
