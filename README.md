@@ -31,11 +31,21 @@ and Event and Event-Player entities that will be placed in an app named "event".
 		|-Event-Player
 	follows
 	rate
-	abuse-report
-	messages
+	useractions
+		|-Abuse-Report
+		|-Messages
 	ads
 
-###Reference
+###ToDo
+
+ * Create admin pages
+ * Create views
+ * Create templates
+ * Find bugs
+ * Fix bugs
+ * Find more bugs and fix them too!
+
+###References
 
 Man pages and documentation that we'll probably need more than once!
 
