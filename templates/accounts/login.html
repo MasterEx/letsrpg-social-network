@@ -2,8 +2,9 @@
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
-<form action="/login/" method="post">
+<form action="/login/check/" method="post">
 {% csrf_token %}
-	Username: <input type="text" name="username" />
-	
+	Username: <input type="text" name="username" /> <br />
+	Password: <input type="password" name="password" />	 <br />
+	<input type="submit" name="submit" />
 </form>

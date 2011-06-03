@@ -57,8 +57,9 @@ Man pages and documentation that we'll probably need more than once!
  * [Extending the Django User model 1](http://scottbarnham.com/blog/2008/08/21/extending-the-django-user-model-with-inheritance/) ,
  [Extending the Django User model 2](http://www.kolios.dk/2010/01/22/how-to-extend-django-user-class-and-change-authentication-middleware/)
  * [Django User Profiles](http://www.turnkeylinux.org/blog/django-profile) 
+ * [Django User Authentication](https://docs.djangoproject.com/en/dev/topics/auth/)
 
-####Tips-Notes
+###Tips-Notes
 
  * Database superuser credentials: username=admin , password=pass
  * Recreate database by deleting it and synchronizing again (not the best way though)
