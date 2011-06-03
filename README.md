@@ -24,8 +24,7 @@ Exception is User and Profile entities that will be placed in an app named "acco
 and Event and Event-Player entities that will be placed in an app named "event".
 
 	account
-		|-User
-		|-Profile
+		|-UserProfile
 	event
 		|-Event
 		|-Event-Player
