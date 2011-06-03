@@ -1,9 +1,9 @@
 from django.db import models
-from accounts.models import User
+from django.contrib.auth.models import User
 
 class Ad(models.Model):
 	# id is auto generated
-	userid = models.ForeignKey(User)
+	userid = models.ForeignKey(User,unique='true')
 	notes = models.TextField()
 	value = models.PositiveIntegerField()
 	date = models.DateTimeField(auto_now_add='true')

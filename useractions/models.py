@@ -1,5 +1,5 @@
 from django.db import models
-from accounts.models import User
+from django.contrib.auth.models import User
 
 class AbuseReport(models.Model):
 	userid_rater = models.ForeignKey(User,related_name='arater')

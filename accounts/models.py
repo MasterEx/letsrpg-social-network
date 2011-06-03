@@ -1,29 +1,9 @@
 from django.db import models
+from django.contrib.auth.models import User
 
-class User(models.Model):
-	# id is auto generated
-	username = models.CharField(max_length=10) # username can be 10 chars long
-	password = models.CharField(max_length=32) # password will be saved as md5 hash
-	email = models.EmailField()
-	verification = models.BooleanField(default=False)
-	ROLE_CHOICES = (
-		( 'U' , 'user'),
-		( 'A' , 'administrator'),
-	)
-	role = models.CharField(max_length=1,default='U',choices=ROLE_CHOICES)
-	STATUS_CHOICES = (
-		( 'O' , 'OK' ),
-		( 'B' , 'BANNED'),
-	)
-	status = models.CharField(max_length=1,default='O',choices=STATUS_CHOICES)
-	ban_reason = models.CharField(max_length=60,null='true',blank='true')
-	
-	def __unicode__(self):
-		return self.name
-
-class Profile(models.Model):
-	userid = models.ForeignKey(User)
-	age = models.SmallIntegerField()
+class UserProfile(models.Model):
+	userid = models.ForeignKey(User,unique='true')
+	age = models.SmallIntegerField(null='true')
 	location = models.CharField(max_length=30) # maybe save a google map location ?
 	name_last = models.CharField(max_length=20)
 	name_first = models.CharField(max_length=20)
@@ -32,6 +12,12 @@ class Profile(models.Model):
 	favorite_fantasy_game = models.CharField(max_length=20)
 	favorite_race = models.CharField(max_length=20)
 	favorite_class = models.CharField(max_length=20)
+	STATUS_CHOICES = (
+		( 'O' , 'OK' ),
+		( 'B' , 'BANNED'),
+	)
+	status = models.CharField(max_length=1,default='O',choices=STATUS_CHOICES)
+	ban_reason = models.CharField(max_length=60,null='true',blank='true')
 	
 	def __unicode__(self):
 		return self.name

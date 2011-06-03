@@ -149,3 +149,5 @@ LOGGING = {
         },
     }
 }
+
+AUTH_PROFILE_MODULE = "accounts.UserProfile"
