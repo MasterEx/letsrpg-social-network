@@ -1,7 +1,7 @@
 from django.db import models
 from accounts.models import User
 
-class Messages(models.Model):
+class Message(models.Model):
 	# id is auto generated
 	userid_sender = models.ForeignKey(User,related_name='sender')
 	userid_receiver = models.ForeignKey(User,related_name='receiver')
