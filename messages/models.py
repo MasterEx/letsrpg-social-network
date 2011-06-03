@@ -13,10 +13,10 @@ class Message(models.Model):
 	)
 	status = models.CharField(max_length=1,choices=STATUS_CHOICES)
 	READ_CHOICES = (
-		( 'U' , 'unread' ),
-		( 'R' , 'read' ),
+		( 'Y' , 'yes' ),
+		( 'N' , 'no' ),
 	)
-	read = models.CharField(max_length=1,default='U',choices=READ_CHOICES)
+	read = models.CharField(max_length=1,default='Y',choices=READ_CHOICES)
 
 	def __unicode__(self):
 		return self.name

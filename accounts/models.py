@@ -11,6 +11,12 @@ class User(models.Model):
 		( 'A' , 'administrator'),
 	)
 	role = models.CharField(max_length=1,default='U',choices=ROLE_CHOICES)
+	STATUS_CHOICES = (
+		( 'O' , 'OK' ),
+		( 'B' , 'BANNED'),
+	)
+	status = models.CharField(max_length=1,default='O',choices=STATUS_CHOICES)
+	ban_reason = models.CharField(max_length=60,null='true',blank='true')
 	
 	def __unicode__(self):
 		return self.name

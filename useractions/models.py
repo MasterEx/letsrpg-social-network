@@ -5,6 +5,12 @@ class AbuseReport(models.Model):
 	userid_rater = models.ForeignKey(User,related_name='arater')
 	userid_rated = models.ForeignKey(User,related_name='arated')
 	commend = models.TextField()
+	STATUS_CHOICES = (
+		( 'O' , 'OPEN' ),
+		( 'C' , 'CLOSED' ),
+	)
+	status = models.CharField(max_length=1,default='O',choices=STATUS_CHOICES)
+	timestamp = models.DateTimeField(auto_now_add='true')
 	
 	def __unicode__(self):
 		return self.name
