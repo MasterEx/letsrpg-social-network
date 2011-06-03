@@ -54,6 +54,9 @@ Man pages and documentation that we'll probably need more than once!
 
  * [Field Types](https://docs.djangoproject.com/en/dev/ref/models/fields/#field-types)
  * [File Upload Example](http://abing.gotdns.com/posts/2009/django-file-upload-handling-examples/)
+ * [Extending the Django User model 1](http://scottbarnham.com/blog/2008/08/21/extending-the-django-user-model-with-inheritance/) ,
+ [Extending the Django User model 2](http://www.kolios.dk/2010/01/22/how-to-extend-django-user-class-and-change-authentication-middleware/)
+  
 
 ####Tips-Notes
 
