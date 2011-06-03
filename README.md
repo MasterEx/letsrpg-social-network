@@ -41,6 +41,7 @@ and Event and Event-Player entities that will be placed in an app named "event".
  * <del>Create admin pages</del>
  * Create views
  * Create templates
+ * Create test data
  * Find bugs
  * Fix bugs
  * Find more bugs and fix them too!
