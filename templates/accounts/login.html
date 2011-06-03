@@ -1,0 +1,9 @@
+<h1> Login Form</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="/login/" method="post">
+{% csrf_token %}
+	Username: <input type="text" name="username" />
+	
+</form>
