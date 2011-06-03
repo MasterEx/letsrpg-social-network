@@ -38,7 +38,7 @@ and Event and Event-Player entities that will be placed in an app named "event".
 
 ###ToDo
 
- * Create admin pages
+ * <del>Create admin pages</del>
  * Create views
  * Create templates
  * Find bugs
