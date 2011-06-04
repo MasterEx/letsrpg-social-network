@@ -1,0 +1,9 @@
+{% autoescape off %}
+
+You have received this email because you have requested an account creation.
+Please go to the following page to confirm your signing up : 
+{{ protocol }}://{{ domain }}{% url letsrpg.accounts.views.signup_confirm uidb36=uid, token=token %}
+
+Thanks.
+
+{% endautoescape %}

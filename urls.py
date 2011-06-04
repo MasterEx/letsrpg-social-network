@@ -7,8 +7,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'letsrpg.views.index', name='home'),
-    (r'^login/$', 'accounts.views.login'),
-    (r'^login/check/$', 'accounts.views.check'),
+    (r'^accounts/', include('letsrpg.accounts.urls')),
     # url(r'^$', 'letsrpg.views.home', name='home'),
     # url(r'^letsrpg/', include('letsrpg.foo.urls')),
 
