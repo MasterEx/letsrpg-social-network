@@ -68,5 +68,5 @@ class UserCreationForm(forms.ModelForm):
 			'protocol': use_https and 'https' or 'http',
 			}
 		send_mail("Confirmation link sent on %s" % site_name,
-				  t.render(Context(c)), 'peyman.gohari@gmail.com', [user.email])
+				  t.render(Context(c)), 'letsrpg.info@gmail.com', [user.email])
 		return user
