@@ -57,8 +57,11 @@ Man pages and documentation that we'll probably need more than once!
  [Extending the Django User model 2](http://www.kolios.dk/2010/01/22/how-to-extend-django-user-class-and-change-authentication-middleware/)
  * [Django User Profiles](http://www.turnkeylinux.org/blog/django-profile) 
  * [Django User Authentication](https://docs.djangoproject.com/en/dev/topics/auth/)
+ * Easy authentication, using django.contrib.auth: [part1](http://peyman-django.blogspot.com/2010/03/full-easy-authentication-using.html),
+ [part2](http://peyman-django.blogspot.com/2010/03/full-easy-authentication-using_19.html)
 
 ###Tips-Notes
 
  * Database superuser credentials: username=admin , password=pass
  * Recreate database by deleting it and synchronizing again (not the best way though)
+ * Change the TEMPLATE_DIRS in settings.py to match your directory path
