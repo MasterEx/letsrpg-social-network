@@ -65,3 +65,7 @@ Man pages and documentation that we'll probably need more than once!
  * Database superuser credentials: username=admin , password=pass
  * Recreate database by deleting it and synchronizing again (not the best way though)
  * Change the TEMPLATE_DIRS in settings.py to match your directory path
+ * In order to send emails uncomment lines 156-160 in settings.py
+ * User signup and password reset require a working smtp
+ * To change the domain name, log into the admin interface and change
+ example.com in the sites table as mentioned [here](http://codespatter.com/2009/01/05/django-settings-site-domain-examplecom/)
