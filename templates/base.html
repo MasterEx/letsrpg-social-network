@@ -14,34 +14,38 @@
         <script type="text/javascript" src="{{ STATIC_URL }}scripts/jquery.js"></script>
     </head>
     <body>
-        <header>
-        [LetsRPG Logo]
-        <div class="userbox">
-            {% if user.is_authenticated %}
-            <div class="userbox-name">
-                {{ user.username }}
+        <div id="header">
+            <a href="TODO"><img src="{{ STATIC_URL }}images/logo.png" alt="letrpg-logo"></a>
+            <div class="userbox">
+                {% if user.is_authenticated %}
+                <div class="userbox-name">
+                    <a href="TODO">{{ user.username }}</a>
+                </div>
+                <ul class="userbox-opts">
+                    <li><a href="todo">Inbox</a></li>
+                    <li><a href="{% url letsrpg.accounts.views.go_to_settings %}">Account Settings</a></li>
+                    <li><a href="{% url django.contrib.auth.views.logout %}">Log Out</a></li>
+                </ul>
+                {% else %}
+                <ul class="userbox-opts">
+                    <li><a href="{% url django.contrib.auth.views.login %}">Log In</a></li>
+                    <li><a href="{% url letsrpg.accounts.views.signup %}">Register</a></li>
+                </ul>
+                {% endif %}
             </div>
-            <ul class="userbox-opts">
-                <li>Inbox</li>
-                <li><a href="{% url letsrpg.accounts.views.go_to_settings %}">Account Settings</a></li>
-                <li><a href="{% url django.contrib.auth.views.logout %}">Log Out</a></li>
-            </ul>
-            {% else %}
-            <ul class="userbox-opts">
-                <li><a href="{% url django.contrib.auth.views.login %}">Log In</a></li>
-                <li><a href="{% url letsrpg.accounts.views.signup %}">Register</a></li>
-            </ul>
-            {% endif %}
         </div>
-    </header>
 
-    <hr />
-    {% block content %}
-    {% endblock %}
-    <hr />
+        <div id="content">
+            {% block content %}
+            {% endblock %}
+        </div>
 
-    <footer>
-    Footer stuff
-    </footer>
-</body>
+        <div id="footer">
+            <ul>
+                <li>2011 - 2012 Copyright &copy; The LetsRPG Team</li>
+                <li><a href="https://github.com/MasterEx/letsrpg-social-network">GitHub repository</a></li>
+                <li><a href="http://webwizards.gr/">WebWizards Design</a></li>
+            </ul>
+        </div>
+    </body>
 </html>
