@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import render_to_response, get_object_or_404
 from django.http import HttpResponseRedirect, HttpResponse, Http404
 from letsrpg.accounts.forms import *
+from letsrpg.accounts.models import *
 from django.contrib.auth.tokens import default_token_generator
 from django.core.urlresolvers import reverse
 from django.template import RequestContext
@@ -72,8 +73,15 @@ def signed_in(request, template_name='accounts/profile.html'):
 							  context_instance=RequestContext(request))
 
 @login_required	
-def go_to_settings(request, template_name='accounts/settings.html'):
-	form = UserProfileForm()
+def go_to_settings(request, template_name='accounts/settings.html'):	
+	try:
+		profile = UserProfile.objects.get(userid=request.user)
+		form = UserProfileForm(
+			initial={'name_last': profile.name_last, 'first_name': profile.name_first,
+			'age': profile.age, 'notes': profile.notes}
+		)
+	except:
+		form = UserProfileForm()
 	return render_to_response(template_name,
 							  {'form': form },
 							  context_instance=RequestContext(request))
