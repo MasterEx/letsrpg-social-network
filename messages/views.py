@@ -11,3 +11,8 @@ def show_messages(request, template_name='messages/messages.html'):
 	return render_to_response(template_name, {'messages': messages},
 							  context_instance=RequestContext(request))
 	
+@login_required
+def show_message(request, pkid, template_name='messages/view.html'):
+	message = Message.objects.filter(pk=pkid)
+	return render_to_response(template_name, {'message': message},
+							  context_instance=RequestContext(request))
