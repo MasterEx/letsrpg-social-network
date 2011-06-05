@@ -2,7 +2,25 @@
 
 {% block content %}
 
-<p>A message!</p>
+<h1>{{ message.0.subject }}</h1>
 
+<p><b>From</b>: {{ message.0.userid_sender }}</p>
+<p><b>Subject</b>: {{ message.0.subject }}</p>
+<p><b>Message</b>: {{ message.0.message }}</p>
+
+<h2>Reply ?</h2>
+
+<form action="{% url letsrpg.messages.views.send_message %}" method="post">
+  {% csrf_token %}
+	{% for field in mailform %}
+  <p>
+    {{ field.label_tag }}: {{ field }}
+    {{ field.errors }}
+  </p>
+  {% endfor %}
+  <input type="hidden" value="{{ message.0.subject }}" name="oldsubject" />
+  <input type="hidden" value="{{ message.0.userid_sender.pk }}" name="sender" />
+  <p><input type="submit" value="Send" /></p>
+</form>
 
 {% endblock %}

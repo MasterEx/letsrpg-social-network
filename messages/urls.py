@@ -8,4 +8,8 @@ urlpatterns = patterns('letsrpg.messages.views',
 	 (r'^inbox/send/(?P<pkid>\d+)/$', 
 	 'show_message', 
 	 {'template_name': 'messages/view.html'}),
+	 
+	 (r'^inbox/send/mailsent/$', 
+	 'send_message', 
+	 {'template_name': 'messages/mailsent.html'}),
 )
