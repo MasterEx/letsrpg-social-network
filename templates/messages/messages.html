@@ -1,17 +1,23 @@
 {% extends "accounts/base.html" %}
 
 {% block content %}
+<div class="messages">
+    <h2>Inbox</h2>
 
-<p>Inbox!</p>
+    <ul class="inline">
+        <li>From</li>
+        <li>Date Sent</li>
+        <li>Subject</li>
+        <li>Action</li>
+    </ul>
 
-<table>
-	<tr><td>From</td><td>Data Sent</td><td>Subject</td><td>Action</td></tr>
-	
-	{% for message in messages %}
-	<tr><td>{{ message.userid_sender }}</td><td>{{ message.timestamp }}</td>
-	<td>{{ message.subject }}</td><td><a href="{% url letsrpg.messages.views.show_message  message.pk%}">View it!</a></td></tr>
-	{% endfor %}
-	
-</table>
-
+    <ul class="inline">
+        <li>{% for message in messages %}</li>
+        <li>{{ message.userid_sender }}</li>
+        <li>{{ message.timestamp }}</li>
+        <li>{{ message.subject }}</li>
+        <li><a href="{% url letsrpg.messages.views.show_message message.pk%}">View it!</a></li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}

@@ -1,44 +1,45 @@
 {% extends "accounts/base.html" %}
 
 {% block content %}
+<div class="settings">
 
 <h2>Change Email</h2>
-<p>Your current email is: {{ user.email }}</p>
+<blockquote>Your current email is: {{ user.email }}</blockquote>
 <form action="{% url letsrpg.accounts.views.change_email %}" method="post">
-  {% csrf_token %}
-	{% for field in mailform %}
-  <p>
-    {{ field.label_tag }}: {{ field }}
-    {{ field.errors }}
-  </p>
-  {% endfor %}
-  <p><input type="submit" value="Save" /></p>
+    {% csrf_token %}
+    <ul class="inline">
+        {% for field in mailform %}
+        <li>{{ field.label_tag }}: {{ field }}</li>
+        {{ field.errors }}
+        {% endfor %}
+    </ul>
+    <p><input type="submit" value="Save" /></p>
 </form>
 
 <h2>Change Password</h2>
-
 <form action="{% url django.contrib.auth.views.password_change %}" method="post">
-  {% csrf_token %}
-	{% for field in passform %}
-  <p>
-    {{ field.label_tag }}: {{ field }}
-    {{ field.errors }}
-  </p>
-  {% endfor %}
-  <p><input type="submit" value="Save" /></p>
+    {% csrf_token %}
+    <ul>
+        {% for field in passform %}
+        <li>{{ field.label_tag }}: {{ field }}</li>
+        {{ field.errors }}
+        {% endfor %}
+    </ul>
+    <p><input type="submit" value="Save" /></p>
 </form>
 
 <h2>Profile Settings</h2>
 
 <form action="{% url letsrpg.accounts.views.save_profile %}" method="post">
-  {% csrf_token %}
-	{% for field in form %}
-  <p>
-    {{ field.label_tag }}: {{ field }}
-    {{ field.errors }}
-  </p>
-  {% endfor %}
-  <p><input type="submit" value="Save" /></p>
+    {% csrf_token %}
+    <ul>
+        {% for field in form %}
+        <li>{{ field.label_tag }}: {{ field }}</li>
+        {{ field.errors }}
+        {% endfor %}
+    </ul>
+    <p><input type="submit" value="Save" /></p>
 </form>
 
+</div>
 {% endblock %}

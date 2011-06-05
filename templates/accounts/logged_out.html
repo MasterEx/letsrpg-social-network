@@ -1,8 +1,11 @@
 {% extends "accounts/base.html" %}
 
 {% block content %}
+<div class="centered">
 
-<p>You have been logged out.</p>
-<a href="{% url django.contrib.auth.views.login %}">Login again</a>
+<h2>You have been logged out.</h2>
+<p><a href="{% url django.contrib.auth.views.login %}">Login again</a>
+or go <a href="/">Home</a></p>
 
+</div>
 {% endblock %}
