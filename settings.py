@@ -158,3 +158,5 @@ AUTH_PROFILE_MODULE = "accounts.UserProfile"
 #EMAIL_HOST_USER = '<your email address>'
 #EMAIL_HOST_PASSWORD = '<your email password>'
 #EMAIL_USE_TLS = True
+
+LOGIN_URL = '/accounts/login'
