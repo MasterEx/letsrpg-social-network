@@ -55,4 +55,7 @@ urlpatterns = patterns('',
 	 
 	 (r'^settings/$', 
 	 'letsrpg.accounts.views.go_to_settings'),
+	 
+	 (r'^settings/saved$', 
+	 'letsrpg.accounts.views.save_profile'),
 )

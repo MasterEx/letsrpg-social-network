@@ -72,8 +72,8 @@ class UserCreationForm(forms.ModelForm):
 		return user
 
 class UserProfileForm(forms.Form):
-	name_last = forms.CharField(max_length=20,label='Last name')
-	name_first = forms.CharField(max_length=20,label='First name')
+	last_name = forms.CharField(max_length=20,label='Last name')
+	first_name = forms.CharField(max_length=20,label='First name')
 	age = forms.IntegerField()
 	location = forms.CharField(max_length=30,label='Location')
 	#avatar = models.FileField(upload_to='avatars')

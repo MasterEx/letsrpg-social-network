@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import render_to_response, get_object_or_404
 from django.http import HttpResponseRedirect, HttpResponse, Http404
 from letsrpg.accounts.forms import *
+from letsrpg.accounts.models import *
 from django.contrib.auth.tokens import default_token_generator
 from django.core.urlresolvers import reverse
 from django.template import RequestContext
@@ -10,6 +11,7 @@ from django.utils.http import urlquote, base36_to_int
 from django.contrib.sites.models import Site
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import *
 
 @csrf_protect
 def signup(request, template_name='registration/signup.html', 
@@ -73,7 +75,30 @@ def signed_in(request, template_name='accounts/profile.html'):
 
 @login_required	
 def go_to_settings(request, template_name='accounts/settings.html'):
-	form = UserProfileForm()
+	user = 	request.user
+	passform = PasswordChangeForm(user)
+	try:
+		profile = UserProfile.objects.get(userid=user)
+		form = UserProfileForm(
+			initial={'last_name': user.last_name, 'first_name': user.first_name,
+			'age': profile.age, 'notes': profile.notes}
+		)
+	except:
+		form = UserProfileForm()
 	return render_to_response(template_name,
-							  {'form': form },
+							  {'form': form ,'passform': passform},
+							  context_instance=RequestContext(request))
+
+@login_required	
+def save_profile(request, template_name='accounts/settings_change.html'):
+	user = request.user
+	profile = UserProfile.objects.get(userid=user)
+	user.last_name = request.POST['last_name']
+	user.first_name = request.POST['first_name']
+	profile.age = request.POST['age']
+	profile.location = request.POST['location']
+	profile.notes = request.POST['notes']
+	profile.save()
+	user.save()
+	return render_to_response(template_name,
 							  context_instance=RequestContext(request))

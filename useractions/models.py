@@ -13,7 +13,7 @@ class AbuseReport(models.Model):
 	timestamp = models.DateTimeField(auto_now_add='true')
 	
 	def __unicode__(self):
-		return self.name
+		return "%s - %s" % (self.userid_rater.username,self.userid_rated.username)
 
 #extend models if possible ?
 class Rate(models.Model):
@@ -30,4 +30,4 @@ class Rate(models.Model):
 	rate = models.CharField(max_length=1,choices=RATE_CHOICES)
 	
 	def __unicode__(self):
-		return self.name
+		return "%s - %s" % (self.userid_rater.username,self.userid_rated.username)
