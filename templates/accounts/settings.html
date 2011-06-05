@@ -1,0 +1,22 @@
+{% extends "accounts/base.html" %}
+
+{% block content %}
+
+We are @ settings
+
+{{ userprofile.age }}
+
+<h2>Profile Settings</h2>
+
+<form action="{% url letsrpg.accounts.views.save_profile %}" method="post">
+  {% csrf_token %}
+	{% for field in form %}
+  <p>
+    {{ field.label_tag }}: {{ field }}
+    {{ field.errors }}
+  </p>
+  {% endfor %}
+  <p><input type="submit" value="Save" /></p>
+</form>
+
+{% endblock %}

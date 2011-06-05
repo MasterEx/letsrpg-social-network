@@ -85,3 +85,15 @@ def go_to_settings(request, template_name='accounts/settings.html'):
 	return render_to_response(template_name,
 							  {'form': form },
 							  context_instance=RequestContext(request))
+
+@login_required	
+def save_profile(request, template_name='accounts/settings_change.html'):
+	profile = UserProfile.objects.get(userid=request.user)
+	profile.name_last = request.POST['name_last']
+	profile.name_first = request.POST['name_first']
+	profile.age = request.POST['age']
+	profile.location = request.POST['location']
+	profile.notes = request.POST['notes']
+	profile.save()
+	return render_to_response(template_name,
+							  context_instance=RequestContext(request))
