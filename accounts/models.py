@@ -5,8 +5,6 @@ class UserProfile(models.Model):
 	userid = models.ForeignKey(User,unique='true')
 	age = models.SmallIntegerField(null='true',blank='true')
 	location = models.CharField(max_length=30,null='true',blank='true') # maybe save a google map location ?
-	name_last = models.CharField(max_length=20,null='true',blank='true')
-	name_first = models.CharField(max_length=20,null='true',blank='true')
 	avatar = models.FileField(upload_to='avatars',null='true',blank='true')
 	notes = models.TextField(null='true',blank='true')
 	favorite_fantasy_game = models.CharField(max_length=20,null='true',blank='true')
