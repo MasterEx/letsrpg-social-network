@@ -72,7 +72,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    '/home/c00kiemon5ter/projects/letsrpg/static/',
+    '/home/periklis/github/letsrpg/static/',
 )
 
 # List of finder classes that know how to find static files in
@@ -104,7 +104,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'letsrpg.urls'
 
 TEMPLATE_DIRS = (
-	"/home/c00kiemon5ter/projects/letsrpg/templates",
+	"/home/periklis/github/letsrpg/templates",
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.

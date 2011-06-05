@@ -1,0 +1,17 @@
+{% extends "accounts/base.html" %}
+
+{% block content %}
+<div class="profile">
+	
+	<h1>welcome to {{ homeuser|upper }}'s nest</h1>
+	
+	{% if user.is_authenticated %}
+		Hi <span class="userbox-name">{{ user.username }}</span>,
+	{% else %}
+		Hi <span class="userbox-name">stranger!</span>, 
+		<a href="{% url django.contrib.auth.views.login %}">Login now to LetsRPG</a>
+	{% endif %}
+	
+</div>
+
+{% endblock %}
