@@ -74,7 +74,7 @@ class UserCreationForm(forms.ModelForm):
 class UserProfileForm(forms.Form):
 	last_name = forms.CharField(max_length=20,label='Last name')
 	first_name = forms.CharField(max_length=20,label='First name')
-	age = forms.IntegerField()
+	age = forms.IntegerField(required=False)
 	location = forms.CharField(max_length=30,label='Location')
 	#avatar = models.FileField(upload_to='avatars')
 	notes = forms.CharField(widget=forms.Textarea)

@@ -81,7 +81,7 @@ def go_to_settings(request, template_name='accounts/settings.html'):
 		profile = UserProfile.objects.get(userid=user)
 		form = UserProfileForm(
 			initial={'last_name': user.last_name, 'first_name': user.first_name,
-			'age': profile.age, 'notes': profile.notes}
+			'location': profile.location, 'age': profile.age, 'notes': profile.notes}
 		)
 	except:
 		form = UserProfileForm()
@@ -91,14 +91,32 @@ def go_to_settings(request, template_name='accounts/settings.html'):
 
 @login_required	
 def save_profile(request, template_name='accounts/settings_change.html'):
+	form = UserProfileForm(request.POST)
 	user = request.user
-	profile = UserProfile.objects.get(userid=user)
+	try:
+		profile = UserProfile.objects.get(userid=user)
+		try:
+			int(request.POST['age'])
+			profile.age = request.POST['age']
+		except:
+			return render_to_response(template_name, {'error_message': "Age has to be an integer!"},
+							  context_instance=RequestContext(request))
+		profile.location = request.POST['location']
+		profile.notes = request.POST['notes']
+		profile.save()
+	except:
+		profile = UserProfile()
+		profile.userid = user
+		try:
+			int(request.POST['age'])
+			profile.age = request.POST['age']
+		except:
+			True
+		profile.location = request.POST['location']
+		profile.notes = request.POST['notes']
+		profile.save()
 	user.last_name = request.POST['last_name']
 	user.first_name = request.POST['first_name']
-	profile.age = request.POST['age']
-	profile.location = request.POST['location']
-	profile.notes = request.POST['notes']
-	profile.save()
 	user.save()
 	return render_to_response(template_name,
 							  context_instance=RequestContext(request))
