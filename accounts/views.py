@@ -77,28 +77,62 @@ def signed_in(request, template_name='accounts/profile.html'):
 def go_to_settings(request, template_name='accounts/settings.html'):
 	user = 	request.user
 	passform = PasswordChangeForm(user)
+	mailform = EmailForm()
 	try:
 		profile = UserProfile.objects.get(userid=user)
 		form = UserProfileForm(
 			initial={'last_name': user.last_name, 'first_name': user.first_name,
-			'age': profile.age, 'notes': profile.notes}
+			'location': profile.location, 'age': profile.age, 'notes': profile.notes}
 		)
 	except:
 		form = UserProfileForm()
 	return render_to_response(template_name,
-							  {'form': form ,'passform': passform},
+							  {'form': form ,'passform': passform,
+								'mailform': mailform},
 							  context_instance=RequestContext(request))
 
 @login_required	
 def save_profile(request, template_name='accounts/settings_change.html'):
+	form = UserProfileForm(request.POST)
 	user = request.user
-	profile = UserProfile.objects.get(userid=user)
+	try:
+		profile = UserProfile.objects.get(userid=user)
+		try:
+			int(request.POST['age'])
+			profile.age = request.POST['age']
+		except:
+			return render_to_response(template_name, {'error_message': "Age has to be an integer!"},
+							  context_instance=RequestContext(request))
+		profile.location = request.POST['location']
+		profile.notes = request.POST['notes']
+		profile.save()
+	except:
+		profile = UserProfile()
+		profile.userid = user
+		try:
+			int(request.POST['age'])
+			profile.age = request.POST['age']
+		except:
+			True
+		profile.location = request.POST['location']
+		profile.notes = request.POST['notes']
+		profile.save()
 	user.last_name = request.POST['last_name']
 	user.first_name = request.POST['first_name']
-	profile.age = request.POST['age']
-	profile.location = request.POST['location']
-	profile.notes = request.POST['notes']
-	profile.save()
 	user.save()
 	return render_to_response(template_name,
 							  context_instance=RequestContext(request))
+
+@login_required
+def change_email(request, template_name='accounts/settings_change.html'):	
+	user = request.user	
+	if request.method == "POST":
+		form = EmailForm(request.POST)
+		if form.is_valid():
+			user.email = request.POST['email1']
+			user.save()
+			return render_to_response(template_name,
+							  context_instance=RequestContext(request))
+	return render_to_response(template_name, {'error_message': "Email confirmation failed!"},
+							  context_instance=RequestContext(request))
+	

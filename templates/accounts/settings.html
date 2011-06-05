@@ -2,7 +2,20 @@
 
 {% block content %}
 
-<h2>Account Settings</h2>
+<h2>Change Email</h2>
+<p>Your current email is: {{ user.email }}</p>
+<form action="{% url letsrpg.accounts.views.change_email %}" method="post">
+  {% csrf_token %}
+	{% for field in mailform %}
+  <p>
+    {{ field.label_tag }}: {{ field }}
+    {{ field.errors }}
+  </p>
+  {% endfor %}
+  <p><input type="submit" value="Save" /></p>
+</form>
+
+<h2>Change Password</h2>
 
 <form action="{% url django.contrib.auth.views.password_change %}" method="post">
   {% csrf_token %}

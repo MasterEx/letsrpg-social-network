@@ -22,7 +22,7 @@
                     <a href="TODO">{{ user.username }}</a>
                 </div>
                 <ul class="userbox-opts">
-                    <li><a href="todo">Inbox</a></li>
+                    <li><a href="{% url letsrpg.messages.views.show_messages %}">Inbox</a></li>
                     <li><a href="{% url letsrpg.accounts.views.go_to_settings %}">Account Settings</a></li>
                     <li><a href="{% url django.contrib.auth.views.logout %}">Log Out</a></li>
                 </ul>

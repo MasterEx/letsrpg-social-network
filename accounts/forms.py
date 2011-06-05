@@ -74,10 +74,29 @@ class UserCreationForm(forms.ModelForm):
 class UserProfileForm(forms.Form):
 	last_name = forms.CharField(max_length=20,label='Last name')
 	first_name = forms.CharField(max_length=20,label='First name')
-	age = forms.IntegerField()
+	age = forms.IntegerField(required=False)
 	location = forms.CharField(max_length=30,label='Location')
 	#avatar = models.FileField(upload_to='avatars')
 	notes = forms.CharField(widget=forms.Textarea)
 	#favorite_fantasy_game = models.CharField(max_length=20)
 	#favorite_race = models.CharField(max_length=20)
 	#favorite_class = models.CharField(max_length=20)
+
+class EmailForm(forms.Form):
+	email1 = forms.EmailField(label="Email", max_length=75)
+	email2 = forms.EmailField(label="Email confirmation", max_length=75,
+							  help_text = "Enter your email address again. A confirmation email will be sent to this address.")
+	
+	def clean_email1(self):
+		email1 = self.cleaned_data["email1"]
+		users_found = User.objects.filter(email__iexact=email1)
+		if len(users_found) >= 1:
+			raise forms.ValidationError("A user with that email already exist.")
+		return email1
+
+	def clean_email2(self):
+		email1 = self.cleaned_data.get("email1", "")
+		email2 = self.cleaned_data["email2"]
+		if email1 != email2:
+			raise forms.ValidationError("The two email fields didn't match.")
+		return email2

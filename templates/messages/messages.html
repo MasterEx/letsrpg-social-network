@@ -1,0 +1,17 @@
+{% extends "accounts/base.html" %}
+
+{% block content %}
+
+<p>Inbox!</p>
+
+<table>
+	<tr><td>From</td><td>Data Sent</td><td>Subject</td><td>Action</td></tr>
+	
+	{% for message in messages %}
+	<tr><td>{{ message.userid_sender }}</td><td>{{ message.timestamp }}</td>
+	<td>{{ message.subject }}</td><td><a href="{% url letsrpg.messages.views.show_message  message.pk%}">View it!</a></td></tr>
+	{% endfor %}
+	
+</table>
+
+{% endblock %}
