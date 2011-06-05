@@ -3,15 +3,15 @@ from django.contrib.auth.models import User
 
 class UserProfile(models.Model):
 	userid = models.ForeignKey(User,unique='true')
-	age = models.SmallIntegerField(null='true')
-	location = models.CharField(max_length=30) # maybe save a google map location ?
-	name_last = models.CharField(max_length=20)
-	name_first = models.CharField(max_length=20)
-	avatar = models.FileField(upload_to='avatars')
-	notes = models.TextField()
-	favorite_fantasy_game = models.CharField(max_length=20)
-	favorite_race = models.CharField(max_length=20)
-	favorite_class = models.CharField(max_length=20)
+	age = models.SmallIntegerField(null='true',blank='true')
+	location = models.CharField(max_length=30,null='true',blank='true') # maybe save a google map location ?
+	name_last = models.CharField(max_length=20,null='true',blank='true')
+	name_first = models.CharField(max_length=20,null='true',blank='true')
+	avatar = models.FileField(upload_to='avatars',null='true',blank='true')
+	notes = models.TextField(null='true',blank='true')
+	favorite_fantasy_game = models.CharField(max_length=20,null='true',blank='true')
+	favorite_race = models.CharField(max_length=20,null='true',blank='true')
+	favorite_class = models.CharField(max_length=20,null='true',blank='true')
 	STATUS_CHOICES = (
 		( 'O' , 'OK' ),
 		( 'B' , 'BANNED'),
@@ -20,5 +20,5 @@ class UserProfile(models.Model):
 	ban_reason = models.CharField(max_length=60,null='true',blank='true')
 	
 	def __unicode__(self):
-		return self.name
+		return self.userid.username
 
