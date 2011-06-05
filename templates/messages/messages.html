@@ -1,0 +1,16 @@
+{% extends "accounts/base.html" %}
+
+{% block content %}
+
+<p>Inbox!</p>
+
+<table>
+	<tr><td>From</td><td>Message</td></tr>
+	
+	{% for message in messages %}
+	<tr><td>{{ message.userid_sender }}</td><td>{{ message.message }}</td></tr>
+	{% endfor %}
+	
+</table>
+
+{% endblock %}

@@ -8,6 +8,7 @@ urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'letsrpg.views.index', name='home'),
     (r'^accounts/', include('letsrpg.accounts.urls')),
+    (r'^messages/', include('letsrpg.messages.urls')),
     # url(r'^$', 'letsrpg.views.home', name='home'),
     # url(r'^letsrpg/', include('letsrpg.foo.urls')),
 

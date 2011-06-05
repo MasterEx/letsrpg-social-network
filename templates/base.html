@@ -5,7 +5,7 @@
 		<tr>
 			{% if user.is_authenticated %} 
 			  <td>{{ user.username }}</td>
-			  <td>Inbox</td> 
+			  <td><a href="{% url letsrpg.messages.views.show_messages %}">Inbox</a></td> 
 			  <td><a href="{% url letsrpg.accounts.views.go_to_settings %}">Account Settings</a></td> 
 			  <td><a href="{% url django.contrib.auth.views.logout %}">Log Out</a></td> 
 			{% else %} 
