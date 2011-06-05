@@ -11,7 +11,7 @@ class Event(models.Model):
 	location = models.CharField(max_length=20)
 
 	def __unicode__(self):
-			return self.name
+			return self.game_master
 
 class EventPlayer(models.Model):
 	userid = models.ForeignKey(User)
@@ -23,4 +23,4 @@ class EventPlayer(models.Model):
 	type = models.CharField(max_length=1,default='P',choices=TYPE_CHOICES)
 
 	def __unicode__(self):
-			return self.name
+			return self.eventid.username

@@ -19,5 +19,5 @@ class Message(models.Model):
 	read = models.CharField(max_length=1,default='Y',choices=READ_CHOICES)
 
 	def __unicode__(self):
-		return self.name
+		return "%s - %s" % (self.userid_sender.username,self.userid_receiver.username)
 
