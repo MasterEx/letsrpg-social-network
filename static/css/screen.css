@@ -1,0 +1,70 @@
+body {
+    margin: 0;
+    text-align: center;
+}
+
+hr {
+    width: 80%;
+    margin: 1.5em auto 1.5em auto;
+}
+
+header {
+    text-align: left;
+    font-size: 150%;
+}
+
+.userbox {
+    text-align: center;
+    float: right;
+    font-size: .65em;
+    padding: 8px 5px 7px 10px;
+    border-top: none;
+    -webkit-border-top-left-radius: 0;
+    -webkit-border-top-right-radius: 0;
+    -moz-border-radius-topleft: 0;
+    -moz-border-radius-topright: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+
+    background: whiteSmoke;
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#FCFCFC',endColorstr='#ECECEC');
+    background: -webkit-gradient(linear,0% 0,0% 100%,from(#FCFCFC),to(#E8E8E8));
+    background: -moz-linear-gradient(270deg,#FCFCFC,#ECECEC);
+    border-color: #EEE;
+    border: 1px solid #E9E9E9;
+    border-bottom-color: whiteSmoke;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.userbox .usebox-name {
+    display: inline;
+    font-weight: bold;
+    padding-right: 6px;
+}
+
+.userbox .userbox-opts {
+    display: inline;
+    font-weight: bold;
+}
+
+.userbox .userbox-opts li {
+    list-style-type: none;
+    display: inline;
+    margin-right: 1em;
+}
+
+footer {
+}
+
+.login form {
+    display: block;
+    width: 35%;
+    margin: 0 auto 0 auto;
+    border: 2px dotted #ccc;
+}
+
