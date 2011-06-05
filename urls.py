@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     url(r'^$', 'letsrpg.views.index', name='home'),
     (r'^accounts/', include('letsrpg.accounts.urls')),
     (r'^messages/', include('letsrpg.messages.urls')),
+    (r'^user/(?P<username>\S+)/$', 'letsrpg.views.user'),
     # url(r'^$', 'letsrpg.views.home', name='home'),
     # url(r'^letsrpg/', include('letsrpg.foo.urls')),
 
