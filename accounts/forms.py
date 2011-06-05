@@ -65,8 +65,19 @@ class UserCreationForm(forms.ModelForm):
 			'uid': int_to_base36(user.id),
 			'user': user,
 			'token': token_generator.make_token(user),
-			'protocol': use_https and 'https' or 'http',
+			'protocol': use_https and 'https' or 'http', 
 			}
 		send_mail("Confirmation link sent on %s" % site_name,
 				  t.render(Context(c)), 'letsrpg.info@gmail.com', [user.email])
 		return user
+
+class UserProfileForm(forms.Form):
+	name_last = forms.CharField(max_length=20,label='Last name')
+	name_first = forms.CharField(max_length=20,label='First name')
+	age = forms.IntegerField()
+	location = forms.CharField(max_length=30,label='Location')
+	#avatar = models.FileField(upload_to='avatars')
+	notes = forms.CharField(widget=forms.Textarea)
+	#favorite_fantasy_game = models.CharField(max_length=20)
+	#favorite_race = models.CharField(max_length=20)
+	#favorite_class = models.CharField(max_length=20)
