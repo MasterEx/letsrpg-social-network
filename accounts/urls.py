@@ -49,4 +49,7 @@ urlpatterns = patterns('',
 	(r'^signup/complete/$', 
 	 'letsrpg.accounts.views.signup_complete', 
 	 {'template_name': 'accounts/signup_complete.html'}),
+	 
+	 (r'^profile/$', 
+	 'letsrpg.accounts.views.signed_in'),
 )

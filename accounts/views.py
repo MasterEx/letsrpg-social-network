@@ -9,6 +9,7 @@ from django.conf import settings
 from django.utils.http import urlquote, base36_to_int
 from django.contrib.sites.models import Site
 from django.views.decorators.csrf import csrf_protect
+from django.contrib.auth.decorators import login_required
 
 @csrf_protect
 def signup(request, template_name='registration/signup.html', 
@@ -64,3 +65,8 @@ def signup_complete(request, template_name='registration/signup_complete.html'):
 	return render_to_response(template_name, 
 							  context_instance=RequestContext(request, 
 															  {'login_url': settings.LOGIN_URL}))
+
+@login_required												  
+def signed_in(request, template_name='accounts/profile.html'):
+	return render_to_response(template_name, 
+							  context_instance=RequestContext(request))
