@@ -59,6 +59,9 @@ Man pages and documentation that we'll probably need more than once!
  * [Django User Authentication](https://docs.djangoproject.com/en/dev/topics/auth/)
  * Easy authentication, using django.contrib.auth: [part1](http://peyman-django.blogspot.com/2010/03/full-easy-authentication-using.html),
  [part2](http://peyman-django.blogspot.com/2010/03/full-easy-authentication-using_19.html)
+ * [Django Forms](http://www.djangobook.com/en/2.0/chapter07/)
+ * [Django Limitings Access to Logged In Users](https://docs.djangoproject.com/en/dev/topics/auth/#limiting-access-to-logged-in-users)
+ * [DIsplaying Other Content to Logged In Users](http://groups.google.com/group/django-users/browse_thread/thread/63ffa208ee2d2175?fwc=1)
 
 ###Tips-Notes
 
