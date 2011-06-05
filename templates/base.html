@@ -1,21 +1,51 @@
-<html>
-  <head></head>
-  <body>
-	<table>
-		<tr>
-			{% if user.is_authenticated %} 
-			  <td>{{ user.username }}</td>
-			  <td><a href="{% url letsrpg.messages.views.show_messages %}">Inbox</a></td> 
-			  <td><a href="{% url letsrpg.accounts.views.go_to_settings %}">Account Settings</a></td> 
-			  <td><a href="{% url django.contrib.auth.views.logout %}">Log Out</a></td> 
-			{% else %} 
-			  <td><a href="{% url django.contrib.auth.views.login %}">Log In</a></td>
-			  <td><a href="{% url letsrpg.accounts.views.signup %}">Register</a></td>
-			{% endif %}
-		</tr>
-	</table>
-	
-    {% block content %}
-    {% endblock %}
-  </body>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us"
+    lang="en-us">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="LetsRPG Team" />
+        <meta name="description" content="The RPG meetup point" />
+        <meta name="keywords" content="rpg, meetup" />
+        <meta name="language" content="en, el" />
+        <title>{{ page.title }}</title>
+        <link rel="shortcut icon" type="image/x-icon" href="{{ STATIC_URL }}favicon.ico" />
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/screen.css" type="text/css" media="screen, projection" />
+        <!--<link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed" />-->
+        <script type="text/javascript" src="{{ STATIC_URL }}scripts/jquery.js"></script>
+    </head>
+    <body>
+        <div id="header">
+            <a href="TODO"><img src="{{ STATIC_URL }}images/logo.png" alt="letrpg-logo"></a>
+            <div class="userbox">
+                {% if user.is_authenticated %}
+                <div class="userbox-name">
+                    <a href="TODO">{{ user.username }}</a>
+                </div>
+                <ul class="userbox-opts">
+                    <li><a href="{% url letsrpg.messages.views.show_messages %}">Inbox</a></li>
+                    <li><a href="{% url letsrpg.accounts.views.go_to_settings %}">Account Settings</a></li>
+                    <li><a href="{% url django.contrib.auth.views.logout %}">Log Out</a></li>
+                </ul>
+                {% else %}
+                <ul class="userbox-opts">
+                    <li><a href="{% url django.contrib.auth.views.login %}">Log In</a></li>
+                    <li><a href="{% url letsrpg.accounts.views.signup %}">Register</a></li>
+                </ul>
+                {% endif %}
+            </div>
+        </div>
+
+        <div id="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+
+        <div id="footer">
+            <ul>
+                <li>2011 - 2012 Copyright &copy; The LetsRPG Team</li>
+                <li><a href="https://github.com/MasterEx/letsrpg-social-network">GitHub repository</a></li>
+                <li><a href="http://webwizards.gr/">WebWizards Design</a></li>
+            </ul>
+        </div>
+    </body>
 </html>

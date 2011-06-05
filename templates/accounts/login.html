@@ -1,21 +1,21 @@
 {% extends "accounts/base.html" %}
 
 {% block content %}
+<div class="login">
+    {% if form.errors %}
+    <p>Authentication error</p>
+    {% endif %}
 
-{% if form.errors %}
-<p>Authentication error</p>
-{% endif %}
-
-<form action="{% url django.contrib.auth.views.login %}" method="post">
-  {% csrf_token %}
-  {% for field in form %}
-  <p>
-    {{ field.label_tag }}: {{ field }}
-    {{ field.errors }}
-  </p>
-  {% endfor %}
-  <p><input type="submit" value="Login" /></p>
-  <input type="hidden" name="next" value="{{ next }}" />
-</form>
-
+    <form action="{% url django.contrib.auth.views.login %}" method="post">
+        {% csrf_token %}
+        {% for field in form %}
+        <p>
+        {{ field.label_tag }}: {{ field }}
+        {{ field.errors }}
+        </p>
+        {% endfor %}
+        <p><input type="submit" value="Login" /></p>
+        <input type="hidden" name="next" value="{{ next }}" />
+    </form>
+</div>
 {% endblock %}
