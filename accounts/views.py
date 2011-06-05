@@ -77,6 +77,7 @@ def signed_in(request, template_name='accounts/profile.html'):
 def go_to_settings(request, template_name='accounts/settings.html'):
 	user = 	request.user
 	passform = PasswordChangeForm(user)
+	mailform = EmailForm()
 	try:
 		profile = UserProfile.objects.get(userid=user)
 		form = UserProfileForm(
@@ -86,7 +87,8 @@ def go_to_settings(request, template_name='accounts/settings.html'):
 	except:
 		form = UserProfileForm()
 	return render_to_response(template_name,
-							  {'form': form ,'passform': passform},
+							  {'form': form ,'passform': passform,
+								'mailform': mailform},
 							  context_instance=RequestContext(request))
 
 @login_required	
@@ -120,3 +122,17 @@ def save_profile(request, template_name='accounts/settings_change.html'):
 	user.save()
 	return render_to_response(template_name,
 							  context_instance=RequestContext(request))
+
+@login_required
+def change_email(request, template_name='accounts/settings_change.html'):	
+	user = request.user	
+	if request.method == "POST":
+		form = EmailForm(request.POST)
+		if form.is_valid():
+			user.email = request.POST['email1']
+			user.save()
+			return render_to_response(template_name,
+							  context_instance=RequestContext(request))
+	return render_to_response(template_name, {'error_message': "Email confirmation failed!"},
+							  context_instance=RequestContext(request))
+	

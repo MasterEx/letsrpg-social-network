@@ -58,4 +58,7 @@ urlpatterns = patterns('',
 	 
 	 (r'^settings/saved$', 
 	 'letsrpg.accounts.views.save_profile'),
+	 
+	 (r'^settings/cemail$', 
+	 'letsrpg.accounts.views.change_email'),
 )
