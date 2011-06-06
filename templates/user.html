@@ -27,6 +27,11 @@
 						<p><input type="submit" value="Unollow" /></p>
 				  </form>
 			  {% endif %}
+			  <form action="{% url letsrpg.messages.views.to_wallpost %}" method="post">
+			  {% csrf_token %}
+			  <input type="hidden" name="receiver" value="{{ homeuser }}" />
+			  <p><input type="submit" value="WallPost!" /></p>
+			</form>
 		{% endif %}
 	{% else %}
 		Hi <span class="userbox-name">stranger!</span>, 

@@ -1,0 +1,19 @@
+{% extends "accounts/base.html" %}
+
+{% block content %}
+
+<h2>Post a public message to {{ receiver }}'s wall!</h2>
+
+<form action="{% url letsrpg.messages.views.wallpost %}" method="post">
+  {% csrf_token %}
+	{% for field in form %}
+  <p>
+    {{ field.label_tag }}: {{ field }}
+    {{ field.errors }}
+  </p>
+  {% endfor %}
+  <input type="hidden" value="{{ receiver }}" name="sender" />
+  <p><input type="submit" value="Send" /></p>
+</form>
+
+{% endblock %}

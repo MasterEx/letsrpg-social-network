@@ -20,4 +20,12 @@ urlpatterns = patterns('letsrpg.messages.views',
 	 (r'^user/send/mailsent/$', 
 	 'send_message2', 
 	 {'template_name': 'messages/mailsent.html'}),
+	 
+	 (r'^user/send/wallpost/$', 
+	 'to_wallpost', 
+	 {'template_name': 'messages/wallpost.html'}),
+	 
+	 (r'^user/send/wallpost/editor$', 
+	 'wallpost', 
+	 {'template_name': 'messages/mailsent.html'}),
 )

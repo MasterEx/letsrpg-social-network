@@ -7,3 +7,4 @@ class MessageForm(forms.Form):
 
 class PublicMessageForm(forms.Form):
 	message = forms.CharField(widget=forms.Textarea,max_length=160)
+	status = "A"
