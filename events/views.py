@@ -19,6 +19,8 @@ def create_event(request, template_name='events/eventdone.html'):
 	location = request.POST['location']
 	event = Event(game_master=gm,slots=slots,slots_taken=1,location=location)
 	event.save()
+	evplayer = EventPlayer(userid=request.user,eventid=event)
+	evplayer.save()
 	return render_to_response(template_name,
 							  context_instance=RequestContext(request))
 

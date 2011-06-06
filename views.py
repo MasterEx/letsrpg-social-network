@@ -3,8 +3,7 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.http import HttpResponseRedirect, HttpResponse, Http404
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
-from letsrpg.follows.models import *
-from letsrpg.messages.models import *
+from letsrpg.events.models import *
 
 def index(request,template_name='index.html'):
 	return render_to_response(template_name,
@@ -22,8 +21,11 @@ def user(request, username, template_name='user.html'):
 												'messages': messages},
 							  context_instance=RequestContext(request))
 	
-def user(request, username, template_name='user.html'):
+def event(request, username, template_name='event.html'):
 	user = get_object_or_404(User, username=username)
-	
-	return render_to_response(template_name, {'homeuser': user},
+	eventpl = EventPlayer.objects.filter(userid=user)
+	events = []
+	for eventp in eventpl:
+		events.append(eventp.eventid)
+	return render_to_response(template_name, {'homeuser': user,'events': events},
 							  context_instance=RequestContext(request))
