@@ -7,6 +7,12 @@ body {
     margin: 0 auto 0 auto;
 }
 
+blockquote {
+    font-style: italic;
+    padding-left: 1em;
+    border-left: 2px dotted #999;
+}
+
 p {
     margin: 1em 0 1em 0;
 }
@@ -130,6 +136,17 @@ ul.inline li {
 
 #content .settings ul.inline li {
     display: block;
+    width: 20em;
+}
+#content .settings form input {
+    margin-top: .5em;
+    margin-left: 0em;
+}
+#content .settings ul.inline li input {
+    width: 100%;
+}
+#content .settings ul.inline li textarea {
+    width: 100%;
 }
 
 #content .messages ul.inline li {

@@ -13,32 +13,32 @@
         {{ field.errors }}
         {% endfor %}
     </ul>
-    <p><input type="submit" value="Save" /></p>
+    <input type="submit" value="Save" />
 </form>
 
 <h2>Change Password</h2>
 <form action="{% url django.contrib.auth.views.password_change %}" method="post">
     {% csrf_token %}
-    <ul>
+    <ul class="inline">
         {% for field in passform %}
         <li>{{ field.label_tag }}: {{ field }}</li>
         {{ field.errors }}
         {% endfor %}
     </ul>
-    <p><input type="submit" value="Save" /></p>
+    <input type="submit" value="Save" />
 </form>
 
 <h2>Profile Settings</h2>
 
 <form action="{% url letsrpg.accounts.views.save_profile %}" method="post">
     {% csrf_token %}
-    <ul>
+    <ul class="inline">
         {% for field in form %}
         <li>{{ field.label_tag }}: {{ field }}</li>
         {{ field.errors }}
         {% endfor %}
     </ul>
-    <p><input type="submit" value="Save" /></p>
+    <input type="submit" value="Save" />
 </form>
 
 </div>
