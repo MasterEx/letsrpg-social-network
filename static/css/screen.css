@@ -17,6 +17,17 @@ p {
     margin: 1em 0 1em 0;
 }
 
+table {
+    text-align: center;
+}
+table td {
+    padding: .5em 3em .5em 3em;
+    border-bottom: 1px dotted #E9CB51;
+}
+table tr:first-child td {
+    border-bottom: 2px solid #E9CB51;
+}
+
 ul.inline {
     display: inline;
 }
@@ -62,29 +73,29 @@ ul.inline li {
     -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
-.userbox-name {
+.username {
     display: inline;
     font-variant: small-caps;
     font-weight: bold;
     padding-right: 6px;
     color: #E9CB51;
 }
-.userbox .userbox-opts {
+.userbox .useropts {
     font-size: 90%;
     display: inline;
     margin-right: 1em;
 }
-.userbox .userbox-opts li {
+.userbox .useropts li {
     list-style-type: none;
     display: inline;
     font-weight: bold;
 }
-.userbox .userbox-opts li:after {
+.userbox .useropts li:after {
     font-size: 120%;
     content: " |";
     color: #9E1377;
 }
-.userbox .userbox-opts li:last-child:after {
+.userbox .useropts li:last-child:after {
     content: "";
 }
 .userbox a:link, .userbox a:visited {
@@ -108,7 +119,7 @@ ul.inline li {
     border-bottom: 1px solid #9E1377;
 }
 #content a:link, #content a:visited {
-    color: #CCC;
+    color: #DDD;
     text-decoration: none;
     border-bottom: 1px solid #9E1377;
 }
@@ -134,23 +145,23 @@ ul.inline li {
     margin-top: 1em;
 }
 
-#content .settings ul.inline li {
+#content .blockform ul.inline li {
     display: block;
-    width: 20em;
+    width: 15em;
     margin-top: .5em;
 }
-#content .settings form input {
+#content .blockform form input {
     margin-left: 0em;
 }
-#content .settings ul.inline li input {
+#content .blockform ul.inline li input {
     width: 100%;
 }
-#content .settings ul.inline li textarea {
+#content .blockform ul.inline li textarea {
     width: 100%;
 }
 
-#content .messages ul.inline li {
-    padding-right: 8em;
+#content .newmsg ul.inline li {
+    width: 25em;
 }
 
 #footer {
@@ -175,6 +186,7 @@ ul.inline li {
 #footer ul li:after {
     content: " :: ";
     color: #00B6E2;
+    color: #E9CB51;
 }
 #footer ul li:last-child:after {
     content: "";
