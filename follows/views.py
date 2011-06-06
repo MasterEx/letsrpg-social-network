@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 def follow(request, template_name='follows/follows.html'):
 	homeuser = request.POST['followed']
 	followed = User.objects.get(username=homeuser)
-	follow = Follow(request.user,followed)
-	#follow.save()
+	follow = Follow(userid_follower=request.user,userid_followed=followed)
+	follow.save()
 	return render_to_response(template_name,
 							  context_instance=RequestContext(request))
