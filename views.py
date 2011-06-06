@@ -12,7 +12,7 @@ def index(request,template_name='index.html'):
 
 def user(request, username, template_name='user.html'):
 	user = get_object_or_404(User, username=username)
-	messages = Message.objects.filter(status='A')
+	messages = Message.objects.filter(status='A',userid_receiver=user)
 	try:
 		Follow.objects.get(userid_follower=request.user,userid_followed=user)
 		follow = False
