@@ -1,0 +1,19 @@
+{% extends "accounts/base.html" %}
+
+{% block content %}
+
+<h2>Send a message to {{ receiver }}</h2>
+
+<form action="{% url letsrpg.messages.views.send_message2 %}" method="post">
+  {% csrf_token %}
+	{% for field in mailform %}
+  <p>
+    {{ field.label_tag }}: {{ field }}
+    {{ field.errors }}
+  </p>
+  {% endfor %}
+  <input type="hidden" value="{{ receiver }}" name="sender" />
+  <p><input type="submit" value="Send" /></p>
+</form>
+
+{% endblock %}

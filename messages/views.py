@@ -36,3 +36,26 @@ def send_message(request, template_name='messages/mailsent.html'):
 	msg.save()
 	return render_to_response(template_name,
 							  context_instance=RequestContext(request))
+
+@login_required
+def new_message(request, template_name='messages/newmessage.html'):
+	homeuser = request.POST['receiver']
+	mailform = MessageForm()
+	return render_to_response(template_name,{'mailform': mailform, 'receiver': homeuser},
+							  context_instance=RequestContext(request))
+
+@login_required
+def send_message2(request, template_name='messages/mailsent.html'):
+	user = request.user
+	receiver = request.POST['sender']
+	recuser = User.objects.get(username=receiver)
+	if (request.POST['subject'] != ""):
+		subject = request.POST['subject']
+	else:
+		True
+	message = request.POST['message']
+	msg = Message(userid_sender=user,userid_receiver=recuser,subject=subject,
+					message=message,status="P")
+	msg.save()
+	return render_to_response(template_name,
+							  context_instance=RequestContext(request))
