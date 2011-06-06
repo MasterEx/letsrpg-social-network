@@ -1,10 +1,12 @@
-{% extends "accounts/base.html" %}
+{% extends "base.html" %}
 
 {% block content %}
 <div class="blockform">
 
 Hello World!
 
-</div>
+<script type="text/javascript" src="{{ STATIC_URL }}scripts/comic.js"></script>
+<img id="comic" src="{{ STATIC_URL }}images/load.gif" alt="comic" title="dowloading" onclick="clickComic()">
 
+</div>
 {% endblock %}
