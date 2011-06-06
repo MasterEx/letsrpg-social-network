@@ -1,0 +1,21 @@
+{% extends "accounts/base.html" %}
+
+{% block content %}
+<div class="blockform">
+	
+	<h2>Create a new event!</h2>
+
+	<form action="{% url letsrpg.events.views.create_event %}" method="post">
+		{% csrf_token %}
+		<ul class="inline">
+			{% for field in form %}
+			<li>{{ field.label_tag }}: {{ field }}</li>
+			{{ field.errors }}
+			{% endfor %}
+		</ul>
+		<input type="submit" value="Create it!" />
+	</form>
+	
+</div>
+
+{% endblock %}
