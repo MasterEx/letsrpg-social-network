@@ -137,9 +137,9 @@ ul.inline li {
 #content .settings ul.inline li {
     display: block;
     width: 20em;
+    margin-top: .5em;
 }
 #content .settings form input {
-    margin-top: .5em;
     margin-left: 0em;
 }
 #content .settings ul.inline li input {
