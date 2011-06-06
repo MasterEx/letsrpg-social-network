@@ -163,6 +163,9 @@ ul.inline li {
 #content .centered {
     text-align: center;
 }
+#content .centered p {
+    text-align: center;
+}
 #content .centered h2 {
     text-align: center;
 }
