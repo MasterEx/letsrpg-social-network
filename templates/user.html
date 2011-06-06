@@ -12,6 +12,11 @@
 		  <input type="hidden" name="receiver" value="{{ homeuser }}" />
 		  <p><input type="submit" value="Message" /></p>
 		</form>
+		<form action="{% url letsrpg.follows.views.follow %}" method="post">
+		  {% csrf_token %}
+		  <input type="hidden" name="followed" value="{{ homeuser }}" />
+		  <p><input type="submit" value="Follow" /></p>
+		</form>
 	{% else %}
 		Hi <span class="userbox-name">stranger!</span>, 
 		<a href="{% url django.contrib.auth.views.login %}">Login now to LetsRPG</a>
