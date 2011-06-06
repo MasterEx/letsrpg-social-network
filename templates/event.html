@@ -1,0 +1,29 @@
+{% extends "accounts/base.html" %}
+
+{% block content %}
+<div class="blockform">
+
+    {% if user.is_authenticated %}{% endif %}
+
+    <h2>Events hosted by {{ homeuser|upper }}</h2>
+    <ul class="inline">
+        {% for event in events %}
+			<li><blockquote>Slots: {{ event.slots }}<br/>
+			 Game Master: {{ event.game_master }}<br/>
+			 Location: {{ event.location }}<br/>
+			 Slots Occupied: {{event.slots_taken}}
+			 {% if event.slots_taken < event.slots %}
+				<br />
+				<form action="{% url letsrpg.events.views.join %}" method="post">
+					{% csrf_token %}
+					<input type="hidden" value="{{ event.pk }}" name="event" />
+					<input type="submit" value="Join" />
+				</form>
+			 {% endif %}
+			 </blockquote></li>
+        {% endfor %}
+    </ul>
+
+</div>
+
+{% endblock %}

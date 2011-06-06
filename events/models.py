@@ -23,4 +23,4 @@ class EventPlayer(models.Model):
 	type = models.CharField(max_length=1,default='P',choices=TYPE_CHOICES)
 
 	def __unicode__(self):
-			return "date: %s - slots: %s - creator: %s" % (self.eventid.date,self.eventid.slots,self.userid.username)
+			return "date: %s - slots: %s - participant: %s" % (self.eventid.date,self.eventid.slots,self.userid.username)

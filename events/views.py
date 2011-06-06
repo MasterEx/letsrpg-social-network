@@ -29,3 +29,24 @@ def done(request, template_name='events/eventdone.html'):
 	form = EventForm()
 	return render_to_response(template_name, {'form': form},
 							  context_instance=RequestContext(request))
+
+@login_required
+def ban(request, template_name='events/ban.html'):
+	return render_to_response(template_name,
+							  context_instance=RequestContext(request))
+
+@login_required
+def join(request, template_name='events/eventdone.html'):
+	event = Event.objects.get(pk=request.POST['event'])	
+	try:
+		ev = EventPlayer.objects.get(userid=request.user,eventid=event)	
+		return render_to_response('events/ban.html',
+							  context_instance=RequestContext(request))	
+	except:
+		True
+	event.slots_taken += 1
+	event.save()
+	evplayer = EventPlayer(userid=request.user,eventid=event)
+	evplayer.save()
+	return render_to_response(template_name,
+							  context_instance=RequestContext(request))
