@@ -3,10 +3,13 @@
 {% block content %}
 <div class="blockform">
 
-Hello World!
+    <h2>Hello World!</h2>
 
+<p class="meta">
 <script type="text/javascript" src="{{ STATIC_URL }}scripts/comic.js"></script>
-<img id="comic" src="{{ STATIC_URL }}images/load.gif" alt="comic" title="dowloading" onclick="clickComic()">
+<img id="comic" src="{{ STATIC_URL }}images/load.gif" alt="comic" title="dowloading">
+<br />comic <a href="http://www.giantitp.com/">source</a>
+</p>
 
 </div>
 {% endblock %}

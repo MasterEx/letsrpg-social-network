@@ -17,6 +17,12 @@ blockquote {
 p {
     margin: 1em 0 1em 0;
 }
+p.meta {
+    font-style: italic;
+    text-align: right;
+    max-width: 60em;
+    margin: 1em auto 1em auto;
+}
 
 table {
     text-align: center;
