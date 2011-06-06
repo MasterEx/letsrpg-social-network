@@ -9,7 +9,12 @@
     Go to <a href="/admin">admin page</a>
     {% else %}
     Don't forget to check your <a href="/messages/inbox/">mail</a>!
+	<form action="{% url letsrpg.events.views.to_event %}" method="post">
+		{% csrf_token %}
+		<p><input type="submit" value="Create Game!" /></p>
+	</form>
     {% endif %}
+
 
 </div>
 {% endblock %}
