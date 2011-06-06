@@ -29,6 +29,21 @@ table tr:first-child td {
     border-bottom: 2px solid #E9CB51;
 }
 
+a.anchor {
+    color: #999 !important;
+    border: none !important;
+    text-decoration: none !important;
+    font: 75% "Courier New", monospace;
+    margin-left: .75em;
+    position: relative;
+    top: -2px;
+    opacity: 0;
+}
+h2:hover a.anchor {
+    color: #999 !important;
+    opacity: 1;
+}
+
 ul.inline {
     display: inline;
 }
@@ -104,10 +119,10 @@ ul.inline li {
     text-decoration: none;
 }
 .userbox a:hover {
-    color: #9E1377;
+    color: #0E58B0;
     text-decoration: none;
     padding-bottom: .1em;
-    border-bottom: 2px solid #0E58B0;
+    border-bottom: 2px solid #9E1377;
 }
 
 #content {
