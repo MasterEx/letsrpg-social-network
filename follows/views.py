@@ -13,3 +13,12 @@ def follow(request, template_name='follows/follows.html'):
 	follow.save()
 	return render_to_response(template_name,
 							  context_instance=RequestContext(request))
+
+@login_required
+def unfollow(request, template_name='follows/follows.html'):
+	homeuser = request.POST['followed']
+	followed = User.objects.get(username=homeuser)
+	follow = Follow.objects.get(userid_follower=request.user,userid_followed=followed)
+	follow.delete()
+	return render_to_response(template_name,
+							  context_instance=RequestContext(request))
