@@ -59,3 +59,19 @@ def send_message2(request, template_name='messages/mailsent.html'):
 	msg.save()
 	return render_to_response(template_name,
 							  context_instance=RequestContext(request))
+
+@login_required
+def wallpost(request, template_name='messages/mailsent.html'):
+	user = request.user
+	receiver = request.POST['sender']
+	recuser = User.objects.get(username=receiver)
+	if (request.POST['subject'] != ""):
+		subject = request.POST['subject']
+	else:
+		True
+	message = request.POST['message']
+	msg = Message(userid_sender=user,userid_receiver=recuser,subject=subject,
+					message=message,status="A")
+	msg.save()
+	return render_to_response(template_name,
+							  context_instance=RequestContext(request))

@@ -33,6 +33,15 @@
 		<a href="{% url django.contrib.auth.views.login %}">Login now to LetsRPG</a>
 	{% endif %}
 	
+	<h1>Wall</h1>
+	<ul class="inline">
+        {% for message in messages %}
+        <br />
+        <li><strong>{{ message.userid_sender.username }}</strong> said:</li>
+        <li>{{ message.message }}</li>
+        {% endfor %}
+    </ul>
+	
 </div>
 
 {% endblock %}
