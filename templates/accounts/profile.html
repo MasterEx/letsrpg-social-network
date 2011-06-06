@@ -2,6 +2,14 @@
 
 {% block content %}
 <div class="blockform">
+
     <h2>Hi <span class="username">{{ user.username }}</span>,</h2>
+
+    {% if user.id == 1 %}
+    Go to <a href="/admin">admin page</a>
+    {% else %}
+    Don't forget to check your <a href="/messages/inbox/">mail</a>!
+    {% endif %}
+
 </div>
 {% endblock %}
