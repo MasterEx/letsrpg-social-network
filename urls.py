@@ -12,6 +12,7 @@ urlpatterns = patterns('',
     (r'^player/', include('letsrpg.follows.urls')),
     (r'^event/', include('letsrpg.events.urls')),
     (r'^user/(?P<username>\S+)/$', 'letsrpg.views.user'),
+    (r'^events/(?P<username>\S+)/$', 'letsrpg.views.user'),
     # url(r'^$', 'letsrpg.views.home', name='home'),
     # url(r'^letsrpg/', include('letsrpg.foo.urls')),
 

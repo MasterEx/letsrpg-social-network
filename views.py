@@ -6,8 +6,9 @@ from django.contrib.auth.decorators import login_required
 from letsrpg.follows.models import *
 from letsrpg.messages.models import *
 
-def index(request):
-    return HttpResponse("Hello, this is letsrpg home page.")
+def index(request,template_name='index.html'):
+	return render_to_response(template_name,
+						  context_instance=RequestContext(request))
 
 def user(request, username, template_name='user.html'):
 	user = get_object_or_404(User, username=username)
@@ -21,3 +22,8 @@ def user(request, username, template_name='user.html'):
 												'messages': messages},
 							  context_instance=RequestContext(request))
 	
+def user(request, username, template_name='user.html'):
+	user = get_object_or_404(User, username=username)
+	
+	return render_to_response(template_name, {'homeuser': user},
+							  context_instance=RequestContext(request))
