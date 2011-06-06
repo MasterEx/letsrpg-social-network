@@ -11,7 +11,7 @@ from django.utils.http import urlquote, base36_to_int
 from django.contrib.sites.models import Site
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import *
+from django.contrib.auth.forms import PasswordChangeForm
 
 @csrf_protect
 def signup(request, template_name='registration/signup.html', 
