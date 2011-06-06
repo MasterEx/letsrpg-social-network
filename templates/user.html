@@ -43,9 +43,8 @@
     <h2>Wall</h2>
     <ul class="inline">
         {% for message in messages %}
-        <br />
-        <li><strong>{{ message.userid_sender.username }}</strong> said:</li>
-        <li>{{ message.message }}</li>
+        <li><blockquote><strong>{{ message.userid_sender.username }}</strong> said:
+            <br />{{ message.message }}</blockquote></li>
         {% endfor %}
     </ul>
 
