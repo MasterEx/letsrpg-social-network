@@ -1,17 +1,19 @@
 {% extends "accounts/base.html" %}
 
 {% block content %}
+<div class="blockform">
 
-<form action="" method="post">
+    <form action="" method="post">
 
-  {% csrf_token %}
-  {% for field in form %}
-  <p>
-    {{ field.label_tag }}: {{ field }}
-    {{ field.errors }}
-  </p>
-  {% endfor %}
-  <p><input type="submit" value="Signup" /></p>
-</form>
+        {% csrf_token %}
+        <ul class="inline">
+            {% for field in form %}
+            <li>{{ field.label_tag }}: {{ field }}</li>
+            {{ field.errors }}
+            {% endfor %}
+        </ul>
+        <input type="submit" value="Signup" />
+    </form>
 
+</div>
 {% endblock %}

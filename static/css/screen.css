@@ -2,6 +2,7 @@ body {
     background: #4b4b4b url(/static/images/bg.gif) repeat-x 0 top;
     text-align: center;
     color: whitesmoke;
+    font-size: 12pt;
     height: 100%;
     width: 60em;
     margin: 0 auto 0 auto;
@@ -167,6 +168,7 @@ ul.inline li {
 #footer {
     display: block;
     font-family: monospace;
+    font-size: 9pt;
     color: #AAA;
     margin: 2em auto 2em auto;
     border-top: 2px dotted #DDD;
