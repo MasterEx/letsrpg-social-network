@@ -1,15 +1,18 @@
 {% extends "accounts/base.html" %}
 
 {% block content %}
+<div class="centered">
 
-<h2>Profile Settings</h2>
+    <h2>Profile Settings</h2>
 
-{% if error_message %}<p><strong>{{ error_message }}</strong></p>
-{% else %}
-<p>Mail sent successfully!</p>
-{% endif %}
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>
+    {% else %}
+    <p>Mail sent successfully!</p>
+    {% endif %}
 
-<p>
-Return to <a href="{% url letsrpg.messages.views.show_messages %}">inbox</a>!
-</p>
+    <p>
+    Return to <a href="{% url letsrpg.messages.views.show_messages %}">inbox</a>
+    or go <a href="/">Home</a></p>
+
+</div>
 {% endblock %}

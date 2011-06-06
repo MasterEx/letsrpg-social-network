@@ -1,26 +1,32 @@
 {% extends "accounts/base.html" %}
 
 {% block content %}
+<div class="newmsg">
 
-<h1>{{ message.0.subject }}</h1>
+    <h2>Subject: {{ message.0.subject }}</h2>
 
-<p><b>From</b>: {{ message.0.userid_sender }}</p>
-<p><b>Subject</b>: {{ message.0.subject }}</p>
-<p><b>Message</b>: {{ message.0.message }}</p>
+    <blockquote>
+    <ul class="inline">
+        <li><strong>From:</strong> {{ message.0.userid_sender }}</li>
+        <li><strong>Subject:</strong> {{ message.0.subject }}</li>
+        <li><strong>Message:</strong><br />{{ message.0.message }}</li>
+    </ul>
+    </blockquote>
 
-<h2>Reply ?</h2>
+    <h2>Reply</h2>
 
-<form action="{% url letsrpg.messages.views.send_message %}" method="post">
-  {% csrf_token %}
-	{% for field in mailform %}
-  <p>
-    {{ field.label_tag }}: {{ field }}
-    {{ field.errors }}
-  </p>
-  {% endfor %}
-  <input type="hidden" value="{{ message.0.subject }}" name="oldsubject" />
-  <input type="hidden" value="{{ message.0.userid_sender.pk }}" name="sender" />
-  <p><input type="submit" value="Send" /></p>
-</form>
+    <form action="{% url letsrpg.messages.views.send_message %}" method="post">
+        {% csrf_token %}
+        <ul class="inline">
+            {% for field in mailform %}
+            <li>{{ field.label_tag }}: {{ field }}</li>
+            {{ field.errors }}
+            {% endfor %}
+        </ul>
+        <input type="hidden" value="{{ message.0.subject }}" name="oldsubject" />
+        <input type="hidden" value="{{ message.0.userid_sender.pk }}" name="sender" />
+        <input type="submit" value="Send" />
+    </form>
 
+</div>
 {% endblock %}

@@ -18,16 +18,16 @@
             <a href="/"><img src="{{ STATIC_URL }}images/logo.png" alt="letrpg-logo"></a>
             <div class="userbox">
                 {% if user.is_authenticated %}
-                <div class="userbox-name">
+                <div class="username">
                     <a href="/accounts/profile/">{{ user.username }}</a>
                 </div>
-                <ul class="userbox-opts">
+                <ul class="useropts">
                     <li><a href="{% url letsrpg.messages.views.show_messages %}">Inbox</a></li>
                     <li><a href="{% url letsrpg.accounts.views.go_to_settings %}">Account Settings</a></li>
                     <li><a href="{% url django.contrib.auth.views.logout %}">Log Out</a></li>
                 </ul>
                 {% else %}
-                <ul class="userbox-opts">
+                <ul class="useropts">
                     <li><a href="{% url django.contrib.auth.views.login %}">Log In</a></li>
                     <li><a href="{% url letsrpg.accounts.views.signup %}">Register</a></li>
                 </ul>

@@ -2,21 +2,21 @@
 
 {% block content %}
 <div class="profile">
-	
-	<h1>welcome to {{ homeuser|upper }}'s nest</h1>
-	
-	{% if user.is_authenticated %}		
-		Hi <span class="userbox-name">{{ user.username }}</span>, send a private message to <strong>{{ homeuser|upper }}</strong>!
-		<form action="{% url letsrpg.messages.views.new_message %}" method="post">
-		  {% csrf_token %}
-		  <input type="hidden" name="receiver" value="{{ homeuser }}" />
-		  <p><input type="submit" value="Message" /></p>
-		</form>
-	{% else %}
-		Hi <span class="userbox-name">stranger!</span>, 
-		<a href="{% url django.contrib.auth.views.login %}">Login now to LetsRPG</a>
-	{% endif %}
-	
+
+    <h2>Welcome to <span class="username">{{ homeuser }}</span>'s nest</h2>
+
+    {% if user.is_authenticated %}
+    <p>Send a private message to <strong>{{ homeuser }}</strong>!</p>
+    <form action="{% url letsrpg.messages.views.new_message %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="receiver" value="{{ homeuser }}" />
+        <input type="submit" value="Message" />
+    </form>
+    {% else %}
+    <p>Hi <span class="userbox-name">stranger!</span>
+    <a href="{% url django.contrib.auth.views.login %}">Login now to LetsRPG!</a></p>
+    {% endif %}
+
 </div>
 
 {% endblock %}
