@@ -1,0 +1,15 @@
+{% extends "accounts/base.html" %}
+
+{% block content %}
+
+<h2>Success!</h2>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>
+{% else %}
+<p>User followed successfully!</p>
+{% endif %}
+
+<p>
+Return to <a href="{% url letsrpg.accounts.views.go_to_settings %}">Account Settings</a>!
+</p>
+{% endblock %}

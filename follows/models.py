@@ -9,4 +9,4 @@ class Follow(models.Model):
 		unique_together = ( 'userid_follower' , 'userid_followed' )
 	
 	def __unicode__(self):
-		return "%s - %s" % (self.userid_follower.username,self.userid_followed.username)
+		return "a follow"
